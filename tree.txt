@@ -1,0 +1,148 @@
+.
+├── Archivio.zip
+├── Pipfile
+├── Pipfile.lock
+├── README.md
+├── __pycache__
+├── data
+│   ├── bon_tooth_v2_sol_orig.pkl
+│   ├── bone_tooth_v2.pkl
+│   ├── bone_tooth_v2_orig.pkl
+│   ├── bone_tooth_v2_sol.pkl
+│   ├── bone_tooth_v2_sol_trans.pkl
+│   ├── cross_conv_V2
+│   │   ├── assets
+│   │   ├── fingerprint.pb
+│   │   ├── keras_metadata.pb
+│   │   ├── saved_model.pb
+│   │   └── variables
+│   │       ├── variables.data-00000-of-00001
+│   │       └── variables.index
+│   ├── cross_conv_V2_3_layers
+│   │   ├── assets
+│   │   ├── fingerprint.pb
+│   │   ├── keras_metadata.pb
+│   │   ├── saved_model.pb
+│   │   └── variables
+│   │       ├── variables.data-00000-of-00001
+│   │       └── variables.index
+│   ├── input.pkl
+│   ├── input_rot.pkl
+│   ├── model.save
+│   │   ├── assets
+│   │   ├── fingerprint.pb
+│   │   ├── keras_metadata.pb
+│   │   ├── saved_model.pb
+│   │   └── variables
+│   │       ├── variables.data-00000-of-00001
+│   │       └── variables.index
+│   ├── model3
+│   │   ├── assets
+│   │   ├── fingerprint.pb
+│   │   ├── keras_metadata.pb
+│   │   ├── saved_model.pb
+│   │   └── variables
+│   │       ├── variables.data-00000-of-00001
+│   │       └── variables.index
+│   ├── model_implant
+│   │   ├── assets
+│   │   ├── fingerprint.pb
+│   │   ├── keras_metadata.pb
+│   │   ├── saved_model.pb
+│   │   └── variables
+│   │       ├── variables.data-00000-of-00001
+│   │       └── variables.index
+│   ├── model_rot
+│   │   ├── assets
+│   │   ├── fingerprint.pb
+│   │   ├── keras_metadata.pb
+│   │   ├── saved_model.pb
+│   │   └── variables
+│   │       ├── variables.data-00000-of-00001
+│   │       └── variables.index
+│   ├── model_rot_compiled
+│   │   ├── assets
+│   │   ├── fingerprint.pb
+│   │   ├── keras_metadata.pb
+│   │   ├── saved_model.pb
+│   │   └── variables
+│   │       ├── variables.data-00000-of-00001
+│   │       └── variables.index
+│   ├── model_rot_compiled2
+│   │   ├── assets
+│   │   ├── fingerprint.pb
+│   │   ├── keras_metadata.pb
+│   │   ├── saved_model.pb
+│   │   └── variables
+│   │       ├── variables.data-00000-of-00001
+│   │       └── variables.index
+│   ├── model_v4_prod_v1
+│   │   ├── assets
+│   │   ├── fingerprint.pb
+│   │   ├── keras_metadata.pb
+│   │   ├── saved_model.pb
+│   │   └── variables
+│   │       ├── variables.data-00000-of-00001
+│   │       └── variables.index
+│   ├── output.pkl
+│   ├── output_rot.pkl
+│   ├── prod_prob_data.pkl
+│   └── prod_sol_data.pkl
+├── dataset
+│   ├── dataset_gen.ipynb
+│   └── dataset_gen_with_implant.ipynb
+├── dental.csv
+├── models
+│   ├── README.md
+│   ├── experimental
+│   │   ├── README.md
+│   │   ├── conv_3d_experiments.ipynb
+│   │   └── play_with_tensor.ipynb
+│   ├── first_model.ipynb
+│   ├── first_model_compile.ipynb
+│   ├── first_model_compile2.ipynb
+│   ├── first_model_compile3.ipynb
+│   ├── model_v4_train.ipynb
+│   ├── second_model.ipynb
+│   └── second_model_no_perm.ipynb
+├── mytest
+│   ├── __init__.py
+│   └── mytest.py
+├── prod_data
+│   └── implantMaster-solution.json
+├── src
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── dataset_reader.cpython-310.pyc
+│   │   ├── dataset_reader.cpython-311.pyc
+│   │   ├── models.cpython-311.pyc
+│   │   ├── utils.cpython-310.pyc
+│   │   └── utils.cpython-311.pyc
+│   ├── dataset_reader.py
+│   ├── models.py
+│   ├── second_util.py
+│   ├── utils.py
+│   └── vconv_layer.py
+├── test
+│   ├── __pycache__
+│   │   ├── conv_test.cpython-311.pyc
+│   │   ├── dataset_tests.cpython-310.pyc
+│   │   ├── dataset_tests.cpython-311.pyc
+│   │   ├── models_tests.cpython-311.pyc
+│   │   └── test_utils.cpython-311.pyc
+│   ├── conv_test.py
+│   ├── dataset_tests.py
+│   ├── models_tests.py
+│   └── test_utils.py
+├── tree.txt
+└── validation
+    ├── __pycache__
+    │   └── utils.cpython-311.pyc
+    ├── first_model_test.ipynb
+    ├── first_model_test_compiled.ipynb
+    ├── first_model_test_compiled2.ipynb
+    ├── first_model_test_compiled3.ipynb
+    ├── my_test.ipynb
+    └── second_model_test.ipynb
+
+41 directories, 105 files
