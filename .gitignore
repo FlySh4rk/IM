@@ -10,3 +10,4 @@ venv/
 *.log
 models/
 data/
+.ipynb_checkpoints/
