@@ -8,6 +8,4 @@ venv/
 .env
 .DS_Store
 *.log
-models/
-data/
 .ipynb_checkpoints/
