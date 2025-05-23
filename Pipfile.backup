@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 tensorflow = "*"
+tensorflow-macos = "*"
+tensorflow-metal = "*"
 jupyter = "*"
 pandas = "*"
 matplotlib = "*"

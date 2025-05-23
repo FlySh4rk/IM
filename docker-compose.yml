@@ -1,0 +1,54 @@
+services:
+  implantmaster:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: implantmaster-app
+    volumes:
+      # Mount per sviluppo locale (opzionale)
+      - ./src:/app/src:ro
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./prod_data:/app/prod_data:ro
+      - ./validation:/app/validation:ro
+      - ./test:/app/test:ro
+      # Volume persistente per i modelli addestrati
+      - models_data:/app/data/model_v4_prod_v1
+    environment:
+      - PYTHONPATH=/app
+      - TF_CPP_MIN_LOG_LEVEL=2  # Riduce i log verbosi di TensorFlow
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    networks:
+      - implantmaster-network
+
+  # Jupyter Notebook service per sviluppo e training
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile.jupyter
+    container_name: implantmaster-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/app
+      - jupyter_data:/home/app/.jupyter
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - PYTHONPATH=/app
+    command: >
+      bash -c "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser 
+               --allow-root --NotebookApp.token='' --NotebookApp.password=''"
+    networks:
+      - implantmaster-network
+
+volumes:
+  models_data:
+    driver: local
+  jupyter_data:
+    driver: local
+
+networks:
+  implantmaster-network:
+    driver: bridge

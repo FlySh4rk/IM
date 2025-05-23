@@ -1,0 +1,44 @@
+# Dockerfile per ambiente Jupyter
+FROM python:3.9-slim
+
+# Installazione delle dipendenze di sistema
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    curl \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Installazione di pipenv e jupyter
+RUN pip install --no-cache-dir pipenv jupyter jupyterlab
+
+# Creazione utente
+RUN useradd --create-home --shell /bin/bash app
+USER app
+WORKDIR /app
+
+# Copia dei file di configurazione
+COPY --chown=app:app Pipfile* ./
+
+# Fix del Pipfile per rimuovere tensorflow-metal (specifico macOS) e assicurare tensorflow standard
+USER root
+RUN sed -i '/tensorflow-metal/d' Pipfile || true && \
+    grep -q "tensorflow = " Pipfile || echo 'tensorflow = "*"' >> Pipfile
+USER app
+
+# Installazione delle dipendenze
+ENV PIPENV_VENV_IN_PROJECT=1
+RUN pipenv install --deploy --ignore-pipfile || \
+    (rm -f Pipfile.lock && pipenv install)
+
+# Aggiunta del virtual environment al PATH
+ENV PATH="/app/.venv/bin:$PATH"
+ENV PYTHONPATH="/app:$PYTHONPATH"
+
+# Configurazione Jupyter
+RUN mkdir -p /home/app/.jupyter
+COPY --chown=app:app jupyter_notebook_config.py /home/app/.jupyter/
+
+EXPOSE 8888
+
+CMD ["pipenv", "run", "jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser"]
